@@ -6,7 +6,7 @@ const ObjectId = require('mongodb').ObjectId;
 
 
 const app = express()
-const port = 9000;
+const port = process.env.PORT || 9000;
 
 //middleware
 app.use(cors());
