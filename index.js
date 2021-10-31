@@ -81,7 +81,7 @@ async function run(){
             console.log(result);
             res.json(result);
         })
-         //update tour api
+         //update tour api...
         app.put('/tours/:id', async(req, res) => {
             const id = req.params.id;
             const status = req.body.status;
