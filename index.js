@@ -81,6 +81,20 @@ async function run(){
             console.log(result);
             res.json(result);
         })
+         //update tour api
+        app.put('/tours/:id', async(req, res) => {
+            const id = req.params.id;
+            const status = req.body.status;
+            const filter = {_id :ObjectId(id)};
+            const options = { upsert: true };
+            const updateDoc = {
+                $set: {
+                  status: status
+                },
+              };
+            const result = await toursCollection.updateOne(filter, updateDoc, options);
+            res.json(result);
+        })
     }
     finally{
         // await client.close();
